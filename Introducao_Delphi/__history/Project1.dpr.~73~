@@ -1,0 +1,58 @@
+program Project1;
+// primeiro comentário
+
+{
+  Comentário multilinha
+}
+
+{$APPTYPE CONSOLE} // fala que o programa vai ser rodado no console (compiler directive)
+
+{$R *.res} // incluiu um arquivo externo de recursos, o "*" fala que o nome desse arquivo será o mesmo no projeto (Project1.exe)
+
+uses // bibliotecas utilizadas (unidades):
+  System.SysUtils, Vcl.Dialogs, Character, Math;
+
+type // defino tipos de variáveis cutomizáveis
+  IntArray = array [1..10] of Integer; // nesse caso, um tipo (IntArray), que é definido como um array de 1 a 10 do tipo exclusivo Integer (of Integer)
+  DynArr = array of Integer; // array dinamico
+
+var // declara as variáveis (são case insensitive)
+  StrTexto: string; // variável do tipo string
+  StrNum: string;
+  Age: Integer; // variável do tipo Integer (-2,147,483,648 até 2,147,483,647)
+  Grade: char; // variável char
+  CanVote: Boolean; // variável booleana
+  Balance: Double; // variável Double
+
+  MyArray: IntArray; // varíavel do tipo que eu criei (IntArray)
+  DArray: DynArr; // mesma coisa, porém com o outro tipo (DynArr)
+  MultArray: array [0..3, 0..2] of Integer; // Array multidimensional
+
+  W, X, Y, Z: Integer; // declara varais variaveis de mesmo tipo
+
+begin
+  try
+    StrTexto := 'Hello, Pascal'; // utiliza a variável criado no inicio do codigo e atribui (:=) a mensagem a variavel
+    Writeln(StrTexto); // Writeln = Print, ln significa que deixa uma linha em branco depois da mensagem
+    Writeln('Number of bytes of the type Integer: ' + Integer.Size.ToString); // mostra o tamanho do tipo Integer em bytes e utiliza o ToString para que seja possivel printar no cmd
+    Write('What is your name?: '); // Print sem criar nova linha
+    Readln(StrTexto); // reescreve o que o usuario colocar para a variavel StrTexto
+    ShowMessage('Hello, ' + StrTexto); // mostra uma mensagem atribuindo o que o usuario digitou
+
+    Age := 45;
+    Writeln(Age.ToString); // converte a variavel Integer para String para ser printada
+    Writeln(Age.ToBoolean);
+    Writeln(Age.ToDouble);
+
+    CanVote := True;
+    Writeln(BoolToStr(CanVote, True));
+
+    StrNum := '50';
+    Writeln(StrToInt(StrNum)); // converte a string para Integer
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+
+  Readln; // permite ver a linha escrita, sem esse comando o cmd aparece tao rapido que nao da para ver
+end.

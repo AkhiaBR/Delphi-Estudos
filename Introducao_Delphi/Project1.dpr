@@ -18,6 +18,7 @@ type // defino tipos de variáveis cutomizáveis
 
 var // declara as variáveis (são case insensitive)
   StrTexto: string; // variável do tipo string
+  StrNum: string;
   Age: Integer; // variável do tipo Integer (-2,147,483,648 até 2,147,483,647)
   Grade: char; // variável char
   CanVote: Boolean; // variável booleana
@@ -31,9 +32,31 @@ var // declara as variáveis (são case insensitive)
 
 begin
   try
-    { TODO -oUser -cConsole Main : Insert code here }
+    StrTexto := 'Hello, Pascal'; // utiliza a variável criado no inicio do codigo e atribui (:=) a mensagem a variavel
+    Writeln(StrTexto); // Writeln = Print, ln significa que deixa uma linha em branco depois da mensagem
+    Writeln('Number of bytes of the type Integer: ' + Integer.Size.ToString); // mostra o tamanho do tipo Integer em bytes e utiliza o ToString para que seja possivel printar no cmd
+    Write('What is your name?: '); // Print sem criar nova linha
+    Readln(StrTexto); // reescreve o que o usuario colocar para a variavel StrTexto
+    ShowMessage('Hello, ' + StrTexto); // mostra uma mensagem atribuindo o que o usuario digitou
+
+    Age := 45;
+    Writeln(Age.ToString); // converte a variavel Integer para String para ser printada
+    Writeln(Age.ToBoolean);
+    Writeln(Age.ToDouble);
+
+    CanVote := True;
+    Writeln(BoolToStr(CanVote, True)); // o segundo parametro (True), define se o Write irá mostrar o valor literal, nesse caso, 'True'. Se fosse False, dependendo do programa eu poderia colocar outra mensagem
+
+    StrNum := '50';
+    Writeln(StrToInt(StrNum));  // converte a string para Integer
+                                // Chr : Converts number to character
+                                // Trunc : Converts real into an integer
+                                // StrToFloat : String to float
+                                // FloatToStr : Float to string
   except
     on E: Exception do
       Writeln(E.ClassName, ': ', E.Message);
   end;
+
+  Readln; // permite ver a linha escrita, sem esse comando o cmd aparece tao rapido que nao da para ver
 end.
