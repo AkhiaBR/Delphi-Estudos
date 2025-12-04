@@ -84,6 +84,30 @@ begin
     Writeln('Power 2^3 : ', Power(2,3)); // potência
     Writeln('Random 0,10 : ', RandomRange(0,10)); // randomizador
 
+    // CONDIÇÕES:
+    // Operadores relacionais: "=" "<>" "< >" "<=" ">="
+    // Operadores Lógicos: "and" "or" "not"
+
+    Write('What is your age : ');
+    readln(Age); // armazena o input na variável Age
+
+    if ((Age >= 1) and (Age <= 18)) then
+      Writeln('Aniversário importante') // nao é preciso colocar ";" até que as condições terminem
+    else if ((Age = 21) and (Age = 50)) then
+      Writeln('Aniversário importante')
+    else if (Age >= 65) then
+      Writeln('Aniversário importante')
+    else
+      Writeln('Aniversário não importante'); // como a condicional acabou, coloquei o ";"
+
+    Grade := 'B';
+    case (Grade) of
+      'A': Writeln('Parabéns');
+      'B','C': Writeln('Tem que melhorar');
+      'D': Writeln('Terrível');
+      'F': Writeln('Falha total');
+    end;
+
   except
     on E: Exception do
       Writeln(E.ClassName, ': ', E.Message);

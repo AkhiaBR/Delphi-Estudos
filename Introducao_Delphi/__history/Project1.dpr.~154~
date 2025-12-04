@@ -78,29 +78,32 @@ begin
 
     // FUNÇÕES DA BIBLIOTECA MATH:
     Writeln('Ceil 3.4 : ', Ceil(3.4)); // printa o menor inteiro maior ao numero digitado 3,4, ou seja, 4
-    Writeln('Floor 3.4 : ', Floor(3.4));  // printa o maior inteiro menor ao numero digitado 3,4, ou seja, 4
+    Writeln('Floor 3.4 : ', Floor(3.4));  // printa o maior inteiro menor ao numero digitado 3,4, ou seja, 3
     Writeln('Max 4, 5 : ', Max(4,5));
     Writeln('Min 4, 5 : ', Min(4,5));
-    Writeln('Power 2^3 : ', Power(2,3));
-    Writeln('Random 0,10 : ', RandomRange(0,10));
-    // -1 if A<B, 0 if A=B, 1 if A>B
-    Writeln('Compare 5, 4 : ', CompareValue(5,4));
-    Writeln('45 deg to rads : ', degtorad(45));
-    Writeln('3.14159 rads to degs : ', radtodeg(3.14159));
-    // e * e * e ~= 20 so log(20.079) ~= 3
-    Writeln('log(20.079) = ', lnxp1(20.079));
-    // 2 * 2 * 2 = 8
-    Writeln('log2(8) = ', log2(8));
-    // 2 * 2 = 100
-    Writeln('log10(100) = ', log10(100));
-    // Hypotenuse : SQRT(A^2 + B^2)
-    Writeln('hypot(2,3) = ', hypot(2,3));
-    // Checks if the value is infinite
-    Writeln('IsInfinite(5/0) = ', IsInfinite(5/0));
-    // Checks if the value is infinite
-    Writeln('IsZero(5/0) = ', IsZero(5/0));
-    // Checks if the value is not a number
-    Writeln('IsNan(5/0) = ', IsNan(5/0));
+    Writeln('Power 2^3 : ', Power(2,3)); // potência
+    Writeln('Random 0,10 : ', RandomRange(0,10)); // randomizador
+
+    // CONDIÇÕES:
+    // Operadores relacionais: "=" "<>" "< >" "<=" ">="
+    // Operadores Lógicos: "and" "or" "not"
+
+    Write('What is your age : ');
+    readln(Age); // armazena o input na variável Age
+
+    if ((Age >= 1) and (Age <= 18)) then
+      Writeln('Aniversário importante') // nao é preciso colocar ";" até que as condições terminem
+    else if ((Age = 21) and (Age = 50)) then
+      Writeln('Aniversário importante')
+    else if (Age >= 65) then
+      Writeln('Aniversário importante')
+    else
+      Writeln('Aniversário não importante'); // como a condicional acabou, coloquei o ";"
+
+    Grade := 'B';
+    case (Grade) of
+
+    end;
 
   except
     on E: Exception do
