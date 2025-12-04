@@ -39,6 +39,7 @@ begin
     Readln(StrTexto); // reescreve o que o usuario colocar para a variavel StrTexto
     ShowMessage('Hello, ' + StrTexto); // mostra uma mensagem atribuindo o que o usuario digitou
 
+    // CONVERSÕES:
     Age := 45;
     Writeln(Age.ToString); // converte a variavel Integer para String para ser printada
     Writeln(Age.ToBoolean);
@@ -53,6 +54,36 @@ begin
                                 // Trunc : Converts real into an integer
                                 // StrToFloat : String to float
                                 // FloatToStr : Float to string
+
+    // OPERAÇÕES DE CARACTERES:
+    Grade := 'A';
+    Writeln(IsDigit(Grade)); // descobre se a variavel é um digito
+    Writeln(IsLetter(Grade)); // letra
+    Writeln(IsLower(Grade));  // minúscula
+    Writeln(IsUpper(Grade));  // maiúscula
+    Writeln(IsWhiteSpace(Grade)); // tem espaço
+
+    // OPERAÇÕES MATEMÁTICAS:
+    Writeln('5 + 4 = ', 5+4);
+    Writeln('5 - 4 = ', 5-4);
+    Writeln('5 * 4 = ', 5*4);
+    Writeln('5 / 4 = ', 5/4);
+    Writeln('4 mod 4 = ', 4 mod 4); // resto da divisão
+    Writeln('4 div 4 = ', 4 div 4); // quociente da divisão
+
+    Dec(Age); // decrementa o valor da variável Age
+    Writeln('Age: ', Age);
+    Inc(Age); // incrementa o valor da variável Age
+    Writeln('Age: ', Age);
+
+    // FUNÇÕES DA BIBLIOTECA MATH:
+    Writeln('Ceil 3.4 : ', Ceil(3.4)); // printa o menor inteiro maior ao numero digitado 3,4, ou seja, 4
+    Writeln('Floor 3.4 : ', Floor(3.4));  // printa o maior inteiro menor ao numero digitado 3,4, ou seja, 3
+    Writeln('Max 4, 5 : ', Max(4,5));
+    Writeln('Min 4, 5 : ', Min(4,5));
+    Writeln('Power 2^3 : ', Power(2,3)); // potência
+    Writeln('Random 0,10 : ', RandomRange(0,10)); // randomizador
+
   except
     on E: Exception do
       Writeln(E.ClassName, ': ', E.Message);
