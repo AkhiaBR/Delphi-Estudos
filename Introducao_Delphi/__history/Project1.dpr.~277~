@@ -131,19 +131,31 @@ begin
 
     // LOOPING COM WHILE:
     W := 1;
-    while W <= 20 do
+    while W <= 20 do // While de números ímpares até 15
       begin // sempre que tiver varias opcoes em um loop, devo utilizar o begin e o end, se nao, o codigo so executa a primeira linha
         if (W mod 2) = 0 then // se o resto da divisao de W / 2 for 0, o código só continua para o próximo loop e não chega no final do while
           begin
             W := W + 1;
             continue;  // pula pra cima (while W <= 20 do) para continuar o loop
           end;
-        if W = 15 then  // quando W
+        if W = 15 then  // quando W = 15, o While Loop é cancelado
           break;  // nao precisa de begin e end porque é só 1 linha de comando, break quebra o loop
         Writeln('W: ', W); // final do While
         W := W + 1;
       end;
 
+    W := RandomRange(0,10);
+    X := 0;
+    Repeat
+      Write('Digite um número aleatório: ');
+      Readln(X);
+
+      if (X > W) then
+        Writeln('O número é maior que ', X);
+      if (X < W) then
+        Writeln('O número é menor que ', X);
+
+    Until W = X;
 
   except
     on E: Exception do

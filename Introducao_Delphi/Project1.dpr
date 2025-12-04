@@ -144,6 +144,18 @@ begin
         W := W + 1;
       end;
 
+    W := RandomRange(0,10);
+    X := 0;
+    Repeat
+      Write('Digite um número aleatório: ');
+      Readln(X);
+
+      if (X > W) then
+        Writeln('O número é menor que ', X);
+      if (X < W) then
+        Writeln('O número é maior que ', X);
+    Until W = X;
+    Writeln('Você acertou o número, parabéns!');
 
   except
     on E: Exception do
