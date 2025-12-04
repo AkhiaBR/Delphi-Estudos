@@ -102,8 +102,48 @@ begin
 
     Grade := 'B';
     case (Grade) of
-
+      'A': Writeln('Parabéns');
+      'B','C': Writeln('Tem que melhorar');
+      'D': Writeln('Terrível');
+      'F': Writeln('Falha total');
     end;
+
+    // ARRAYS:
+    MyArray[1] := 0; // atribui a primeira posicao do Myarray para ser igual a 0
+    Writeln('Array 0: ', MyArray[1].ToString);
+    setlength(DArray, 5); // delimita que o array dinamico terá 5 espaços
+
+    // LOOPING:
+    for W := 1 to 10 do // define um loop de iteravel W (inicializado no inicio do codigo) que começa com 1 e vai até 10
+      MyArray[W] := W; // para cada iteracao de W, o mesmo valor a cada loop é atribuido a posicao da lista
+
+    for W := 1 to 5 do
+      Writeln('MyArray: ', MyArray[W]);
+
+    // LOOPING DE ARRAY MULTIDIMENSIONAL:
+    for W := 1 to 3 do
+        for X:= 1 to 2 do
+           MultArray[W,X]:= W+X;
+
+    for W := 1 to 3 do
+        for X:= 1 to 2 do
+          Writeln(MultArray[W,X]);
+
+    // LOOPING COM WHILE:
+    W := 1;
+    while W <= 20 do
+      begin // sempre que tiver varias opcoes em um loop, devo utilizar o begin e o end, se nao, o codigo so executa a primeira linha
+        if (W mod 2) = 0 then
+          begin
+            W := W + 1;
+            continue;  // pula pra cima (while W <= 20 do) para continuar o loop
+          end;
+        if W = 15 then
+          break;  // nao precisa de begin e end porque é só 1 linha de comando
+        Writeln('W: ', W);
+        W := W + 1;
+      end;
+
 
   except
     on E: Exception do
