@@ -65,6 +65,9 @@ begin
       Until I = Length(NumeroArray); // se I for igual ao tamanho do array, o loop para
       Resultado := (Soma/Length(NumeroArray)); // o resultado é a soma total dos numeros dividio pelo tamanho do array
       ShowMessage('Média dos números adicionados: ' + FloatToStr(Resultado)); // mensagem do resultado
+      setlength(NumeroArray, 0); // reinicia o array, para que seja possível calcular outras médias
+      Soma := 0;  // reinicia as variáveis 'Soma' e 'I'
+      I := 0;
     end;
 
 // TENTATIVA DE CÓDIGO PARA MOSTRAR RESULTADO ANTIGA (decidi fazer com Repeat, pois estava dando erro):

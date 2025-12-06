@@ -1,3 +1,6 @@
+// EXERCÍCIO 1 - SEO SISTEMAS
+// NOME: FERNANDO GONÇALVES
+
 unit Unit1;
 
 interface
@@ -60,8 +63,10 @@ begin
         Soma := Soma + NumeroArray[I]; // a soma será igual a ela mesma + o número que está na posição delimitada por 'I'
         I := I + 1; // o I ficara somando sobre ele mesmo, pois é o iterador
       Until I = Length(NumeroArray); // se I for igual ao tamanho do array, o loop para
-      Resultado := (Soma/Length(NumeroArray));
-      ShowMessage('Média dos números adicionados: ' + FloatToStr(Resultado));
+      Resultado := (Soma/Length(NumeroArray)); // o resultado é a soma total dos numeros dividio pelo tamanho do array
+      ShowMessage('Média dos números adicionados: ' + FloatToStr(Resultado)); // mensagem do resultado
+      setlength(NumeroArray, 0);
+      Soma := 0;
     end;
 
 // TENTATIVA DE CÓDIGO PARA MOSTRAR RESULTADO ANTIGA (decidi fazer com Repeat, pois estava dando erro):
