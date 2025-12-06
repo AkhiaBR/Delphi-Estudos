@@ -1,0 +1,38 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+type
+  InteiroArray = array of Integer; // cria um tipo de array dinâmico Integer
+
+var
+  NumeroArray: InteiroArray; // cria a variável do array
+  TamanhoLista, I, W, Z: Integer; // cria variáveis do tipo Interger que serão utilizadas no programa
+
+begin
+  try
+    Write('Quantos números você quer adicionar em sequência à lista?: '); // pergunta para definir o tamanho do array
+    Readln(TamanhoLista); // armazena o input na variável TamanhoLista
+
+    setlength(NumeroArray, (TamanhoLista + 1)); // delimita o tamanho do array NumeroArray para o tamanho definido no input e adiciona (+1) para que o 0 seja tratado posteriormente no código
+    Z := Length(NumeroArray) - 1; // variável que será referência para o iterador W, subtrai um (-1) para obter o numero limite da sequencia de arrays, ex: se o length de NumeroArray for 6 (0, 1, 2, 3, 4, 5), o Z será o 5
+
+//    for W := 1 to Z do // loop que inicia a variável W para iterar até o último número da sequência
+//      NumeroArray[W] := W; // gera a sequencia de numeros no array para cada iteração
+//
+//    Writeln('Lista em ordem inversa: '); // mensagem para o usuário
+
+    for I := 1 to Z do // loop para mostrar a sequencia inversa
+      Writeln(IntToStr(NumeroArray[(Length(NumeroArray)) - I])); // primeiro, converte o Integer para Str, depois, exibe os valores inversos, já que o tamanho do array será subtraido com cada iteração, o que printa os valores inversos
+
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+  Readln;
+end.
