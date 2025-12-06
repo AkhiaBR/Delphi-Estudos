@@ -13,7 +13,7 @@ uses // bibliotecas utilizadas (unidades):
   System.SysUtils, Vcl.Dialogs, Character, Math;
 
 type // defino tipos de variáveis cutomizáveis
-  IntArray = array [1..10] of Integer; // nesse caso, um tipo (IntArray), que é definido como um array de 1 a 10 do tipo exclusivo Integer (of Integer)
+  IntArray = array [1..10] of Integer; // nesse caso, um tipo (IntArray), que é definido como um array de 1 a 10 do tipo exclusivo Integer (of Integer), como o array foi delimitado em [1..10], a posicao [0] será inválida, pois não existe nesse cenário
   DynArr = array of Integer; // array dinamico
 
 var // declara as variáveis (são case insensitive)
