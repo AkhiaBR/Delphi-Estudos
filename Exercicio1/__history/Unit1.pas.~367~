@@ -1,0 +1,80 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.TitleBarCtrls;
+
+type
+  ArrayDinamico = array of Double; // Cria um tipo personalizado de array dinamico
+
+  TForm1 = class(TForm)
+    Edit1: TEdit; // Caixa de texto
+    Button1: TButton; // Botao 1
+    Button2: TButton; // Botao 2
+    StaticText1: TStaticText;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  end;
+
+var
+  Form1: TForm1;
+  NumeroArray: ArrayDinamico;  // Array dos números digitados de tipo personalizado
+  NumeroDigitado, Soma, Resultado: Double; // Variáveis do tipo Double
+  Contador, I: Integer; // Variáveis do tipo Inteiro
+
+implementation
+
+{$R *.dfm} // incluiu um arquivo externo de recursos, o "*" fala que o nome desse arquivo será o mesmo no projeto (Project1.exe)
+
+procedure AdicionarNumero(NumeroDigitado: Double); // procedure para adicionar número ao array 'NumeroArray'
+begin
+  if Length(NumeroArray) < 10 then // se o tamanho de 'NumeroArray' for menor que 10, o armazenamento está permitido
+    begin
+      Contador := Length(NumeroArray); // o contador de vezes que um número foi adicionado ao array é o valor do tamanho desse array
+      setlength(NumeroArray, Contador + 1); // quando clicado pela primeira vez no botao 'adicionar', o tamanho do array será igual a 0 e, consequentemente, o contador também, por isso, adicionei (+1) para que a posicao do array fosse ajustada
+      NumeroArray [Contador] := NumeroDigitado; // o numero digitado será guardado na posicao delimitada do array, ou seja, o contador
+    end
+  else
+    ShowMessage('Você adicionou o máximo de números possíveis'); // mensagem para caso o usuário já tenha adicionado 10 números.
+end;
+
+procedure TForm1.Button1Click(Sender: TObject); // procedure para quando o botão 'adicionar' for clicado
+begin
+  NumeroDigitado := StrToFloatDef(Edit1.Text, 0); // converte a caixa de texto para o tipo float, e utiliza o StrToFloatDef para definir um resultado 'default' caso o input seja inválido (ex: uma letra)
+  AdicionarNumero(NumeroDigitado); // chama a procedure que criei para que o número seja adicionado
+  Edit1.Text := ''; // limpa a caixa de texto para que o usuário possa digitar mais vezes
+end;
+
+procedure TForm1.Button2Click(Sender: TObject); // procedure para quando o botão 'resultado' for clicado
+begin
+  if Length(NumeroArray) < 2 then // se o tamanho do array for menor que 2, não será possível realizar a média
+    ShowMessage('Você não digitou a quantidade mínima de números para realizar uma média') // mensagem para o usuário
+  else
+    begin
+      Soma := 0; // inicializa as variável Soma e I para fazer as iterações
+      I := 0;
+
+      Repeat
+        Soma := Soma + NumeroArray[I]; // a soma será igual a ela mesma + o número que está na posição delimitada por 'I'
+        I := I + 1; // o I ficara somando sobre ele mesmo, pois é o iterador
+      Until I = Length(NumeroArray); // se I for igual ao tamanho do array, o loop para
+      Resultado := (Soma/Length(NumeroArray));
+      ShowMessage('Média dos números adicionados: ' + FloatToStr(Resultado));
+    end;
+
+// TENTATIVA DE CÓDIGO PARA MOSTRAR RESULTADO ANTIGA (decidi fazer com Repeat, pois estava dando erro):
+//  for I := 0 to Length(NumeroArray) do
+//    begin
+//      Soma := Soma + NumeroArray[I];
+//      ShowMessage('Tamanho do Array: ' + FloatToStr(Length(NumeroArray)));
+//      Resultado := Soma;
+//      ShowMessage('Média dos números adicionados: ' + FloatToStr(Resultado));
+//    end;
+//  Resultado := Soma;
+//  ShowMessage('Média dos números adicionados: ' + FloatToStr(Resultado));
+
+end;
+
+end.
