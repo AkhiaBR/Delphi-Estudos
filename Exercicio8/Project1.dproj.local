@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2025/12/06 13:53:15.000.056,=C:\Users\Pichau\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/12/07 17:05:57.000.576,=C:\Users\Pichau\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/12/07 17:25:55.000.868,=C:\Users\Pichau\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/12/07 17:29:28.000.116,=C:\Users\Pichau\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/12/07 17:34:13.000.840,C:\Users\Pichau\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Pichau\Documents\Embarcadero\Studio\Projects\Exercicio8\Unit1.pas</Transaction>
+    <Transaction>2025/12/07 17:34:13.000.840,C:\Users\Pichau\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Pichau\Documents\Embarcadero\Studio\Projects\Exercicio8\Unit1.dfm</Transaction>
+    <Transaction>2025/12/07 17:34:16.000.229,C:\Users\Pichau\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Pichau\Documents\Embarcadero\Studio\Projects\Exercicio8\Project1.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
