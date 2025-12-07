@@ -14,7 +14,7 @@ uses
   Vcl.WinXCtrls;
 
 type
-  TFormPrincipal = class(TForm)
+  TTForm1 = class(TForm)
     Conexao: TFDConnection;
     DriverMySQL: TFDPhysMySQLDriverLink;
     FDTable1: TFDTable;
@@ -68,13 +68,13 @@ type
   end;
 
 var
-  FormPrincipal: TFormPrincipal;
+  TForm1: TTForm1;
 
 implementation
 
 {$R *.dfm}
 
-procedure TFormPrincipal.btnAlterarClick(Sender: TObject);
+procedure TTForm1.btnAlterarClick(Sender: TObject);
 begin
   FDTable1.Edit; // permite editar as colunas da tabela
   // coloca a visualização das colunas embaixo do form
@@ -84,7 +84,7 @@ begin
   btnCancelar.Visible := True;
 end;
 
-procedure TFormPrincipal.btnAtualizarClick(Sender: TObject);
+procedure TTForm1.btnAtualizarClick(Sender: TObject);
 begin
   Atualizar; // chama o metodo para atualizar as informacoes
   // abre visualização das colunas no form
@@ -94,7 +94,7 @@ begin
   btnCancelar.Visible := False;
 end;
 
-procedure TFormPrincipal.btnCancelarClick(Sender: TObject);
+procedure TTForm1.btnCancelarClick(Sender: TObject);
 begin
   FDTable1.Cancel; // permite cancelar o input
   // abre visualização das colunas no form
@@ -104,12 +104,12 @@ begin
   btnCancelar.Visible := False;
 end;
 
-procedure TFormPrincipal.btnExcluirClick(Sender: TObject);
+procedure TTForm1.btnExcluirClick(Sender: TObject);
 begin
   FDTable1.delete; // permite deletar as colunas da tabela
 end;
 
-procedure TFormPrincipal.btnIncluirClick(Sender: TObject);
+procedure TTForm1.btnIncluirClick(Sender: TObject);
 begin
   FDTable1.Append; // deixa uma linha de campos em branco
   // coloca a visualização das colunas embaixo do form
@@ -120,7 +120,7 @@ begin
 
 end;
 
-procedure TFormPrincipal.btnSalvarClick(Sender: TObject);
+procedure TTForm1.btnSalvarClick(Sender: TObject);
 begin
   FDTable1.Post;
   // abre visualização das colunas no form
@@ -130,13 +130,13 @@ begin
   btnCancelar.Visible := False;
 end;
 
-procedure TFormPrincipal.edtPesquisarKeyPress(Sender: TObject; var Key: Char);
+procedure TTForm1.edtPesquisarKeyPress(Sender: TObject; var Key: Char);
 begin
   FDTable1.Locate('DS_NOME', edtPesquisar.Text, [TLocateOption.loCaseInsensitive, TLocateOption.loPartialKey]); // localiza o string do nome do cliente, e passa parametros para ignorar case sensitive e para dar match em buscas incompletas
 //  FDTable1.Locate('CD_CODIGOCLI', StrToInt(edtPesquisar.Text), [TLocateOption.loCaseInsensitive, TLocateOption.loPartialKey]); - nao consegui fazer pesquisar por somente código
 end;
 
-procedure TFormPrincipal.FormShow(Sender: TObject);
+procedure TTForm1.FormShow(Sender: TObject);
 begin
   // abre visualização das colunas no form
   DBGrid1.Top := 75;
@@ -145,7 +145,7 @@ begin
   btnCancelar.Visible := False;
 end;
 
-procedure TFormPrincipal.Atualizar; // metodo para fechar e abrir o frame das colunas (atualizar)
+procedure TTForm1.Atualizar; // metodo para fechar e abrir o frame das colunas (atualizar)
 begin
   FDTable1.Close;
   FDTable1.Open;

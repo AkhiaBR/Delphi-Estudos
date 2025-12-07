@@ -86,7 +86,8 @@ end;
 
 procedure TFormPrincipal.btnAtualizarClick(Sender: TObject);
 begin
-  Atualizar;
+  Atualizar; // chama o metodo para atualizar as informacoes
+  // abre visualização das colunas no form
   DBGrid1.Top := 75;
   DBGrid1.Height := 510;
   btnSalvar.Visible := False;
@@ -95,7 +96,8 @@ end;
 
 procedure TFormPrincipal.btnCancelarClick(Sender: TObject);
 begin
-  FDTable1.Cancel;
+  FDTable1.Cancel; // permite cancelar o input
+  // abre visualização das colunas no form
   DBGrid1.Top := 75;
   DBGrid1.Height := 510;
   btnSalvar.Visible := False;
@@ -104,12 +106,12 @@ end;
 
 procedure TFormPrincipal.btnExcluirClick(Sender: TObject);
 begin
-  FDTable1.delete;
+  FDTable1.delete; // permite deletar as colunas da tabela
 end;
 
 procedure TFormPrincipal.btnIncluirClick(Sender: TObject);
 begin
-  FDTable1.Append;
+  FDTable1.Append; // deixa uma linha de campos em branco
   // coloca a visualização das colunas embaixo do form
   DBGrid1.Top := 280;
   DBGrid1.Height := 310;
@@ -136,13 +138,14 @@ end;
 
 procedure TFormPrincipal.FormShow(Sender: TObject);
 begin
+  // abre visualização das colunas no form
   DBGrid1.Top := 75;
   DBGrid1.Height := 510;
   btnSalvar.Visible := False;
   btnCancelar.Visible := False;
 end;
 
-procedure TFormPrincipal.Atualizar;
+procedure TFormPrincipal.Atualizar; // metodo para fechar e abrir o frame das colunas (atualizar)
 begin
   FDTable1.Close;
   FDTable1.Open;

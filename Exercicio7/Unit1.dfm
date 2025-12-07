@@ -1,4 +1,4 @@
-object FormPrincipal: TFormPrincipal
+object TForm1: TTForm1
   Left = 0
   Top = 0
   Caption = 'Painel Clientes'
