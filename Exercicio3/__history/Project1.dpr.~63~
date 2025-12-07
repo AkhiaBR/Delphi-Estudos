@@ -1,0 +1,42 @@
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+var
+  Frase, Palavra: string;
+  I: Boolean;
+  Contador: Integer;
+
+begin
+  try
+    Write('Digite uma frase: ');
+    Readln(Frase);
+
+    Write('Digite outra palavra: ');
+    Readln(Palavra);
+
+    I := True;
+//    while I do
+//      begin
+        if Frase.Contains(Palavra) then
+          begin
+            Contador := Contador + 1;
+            Writeln('A palavra ', '"',Palavra2,'"', ' está contida na palavra ', '"',Palavra1,'" ', Contador, ' vezes');
+//            continue;
+          end
+        else
+//          break;
+//      end;
+
+
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+  Readln;
+end.

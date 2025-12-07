@@ -1,0 +1,79 @@
+// EXERCÍCIO 4 - SEO SISTEMAS
+// FERNANDO GONÇALVES
+
+program Project1;
+
+{$APPTYPE CONSOLE}
+
+{$R *.res}
+
+uses
+  System.SysUtils;
+
+type
+  ArrayDinamico = array of Integer; // tipo para array dinamico
+
+var
+  SequenciaArray : ArrayDinamico; // variavel do array dinamico
+  NumeroDigitado, I, TamanhoSequencia, Resultado, OP : Integer; // variaveis do tipo Integer
+
+begin
+  try
+    while True do // enquanto o loop for verdadeiro, o programa continuará rodando
+      begin
+        Write('Quantos número você quer adicionar à sequência: '); // input para definir o tamanho de SequenciaArray
+        Readln(TamanhoSequencia); // guarga o valor em TamanhoSequencia
+
+        setlength(SequenciaArray, TamanhoSequencia); // define o tamanho do array para o que o usuário digitou
+
+        I := 0;  // inicializa as variáveis I e Resultado
+        Resultado := 0;
+        Repeat // loop de repeticao até que o iterador seja igual ao tamanho de SequenciaArray
+          Write('Digite o número para adicionar na sequência: '); // input do numero a ser adicionado
+          Readln(NumeroDigitado); // armazenamento do numero digitado
+          SequenciaArray[I] := NumeroDigitado; // define o numero digitado a sua respectiva posicao no array conforme a iteracao
+
+          if (SequenciaArray[I] mod 2) = 0 then // filtra os numeros que sao pares (quando o resto da divisao por 2 for igual a 0)
+            Resultado := Resultado + Sequenciaarray[I]; // soma os numeros pares na variavel Resultado
+
+          I := I + 1; // soma para continuar a iteracao
+
+        Until I = Length(SequenciaArray);
+
+        Writeln('');
+        Writeln('Sequência de números adicionados:');
+
+        for I := 0 to Length(SequenciaArray) - 1 do // loop simples para exibir os numeros adicionados (subtrai -1 para que o iterador nao ultrapasse o limite do array)
+          Writeln(SequenciaArray[I]); // escreve o numero digitado
+
+        Writeln('');
+        Writeln('Soma dos números pares dessa sequência: ', IntToStr(Resultado)); // mostra o resultado das somas
+
+        // reinicia as variáveis para que possam ser utilizadas posteriormente:
+        setlength(SequenciaArray, 0);
+        Resultado := 0;
+        I := 0;
+
+        Writeln('');
+        Write('Deseja adicionar mais uma sequência? Sim (1), Não (0): '); // input para continuar no programa ou nao
+        Readln(OP); // armazena a decisao do usuário na variável OP
+
+        if (OP = 1) then // sim:
+          begin
+            Writeln('');
+            continue   // volta ao inicio do loop
+          end
+        else if (OP = 0) then // não
+          begin
+            Writeln('Saindo do programa...');
+            break  // quebra o loop
+          end
+        else
+          Writeln('Você inseriu um valor inválido!');
+      end;
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+  Readln;
+end.
