@@ -43,6 +43,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` VALUES (1,'Fernando Gonçalves','Rua Hermínia Cechinel','Esperança','88837000','Morro da Fumaça','SC','48998616755'),(2,'Flavio Zeferino Graciano','Rua Vinte de Maio','De Costa','88837000','Morro da Fumaça','SC','48998243177'),(3,'Joao Victor Wagner Marques','Rua Vinte de Maio','Centro','88837000','Morro da Fumaça','SC','48997646722');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-12-06 23:06:47
+-- Dump completed on 2025-12-07 20:41:18
